@@ -38,25 +38,45 @@
         <img src="product1.jpg" alt="Product 1">
         <div class="details">
           <h3>Product 1</h3>
-          <p>Size: S, M, L</p>
+          <label for="product1-size">Size:</label>
+          <select id="product1-size">
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+          </select>
           <p>Price: $20</p>
+          <button class="add-to-cart-btn" data-product="Product 1">Add to Cart</button>
         </div>
       </div>
       <div class="product">
         <img src="product2.jpg" alt="Product 2">
         <div class="details">
           <h3>Product 2</h3>
-          <p>Size: S, M, L, XL</p>
+          <label for="product2-size">Size:</label>
+          <select id="product2-size">
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+          </select>
           <p>Price: $25</p>
+          <button class="add-to-cart-btn" data-product="Product 1">Add to Cart</button>
         </div>
       </div>
-      <!-- Add more product entries as needed -->
+      
     </section>
+    
 
     <section id="contact">
       <h2>Contact Us</h2>
       <p>Reach out to us for any inquiries or feedback. We'd love to hear from you!</p>
+      <form id="subscribe-form">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email">
+        <button type="submit">Subscribe</button>
+      </form>
     </section>
+    
   </div>
 
   <script src="script.js"></script>
