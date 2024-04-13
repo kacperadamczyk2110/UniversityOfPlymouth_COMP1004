@@ -26,7 +26,7 @@ var cartCloseButton = document.querySelector("#cart-popup .close");
 
 // When the user clicks the cart button, open the cart popup
 cartButton.onclick = function() {
-  cartPopup.style.display = "block";
+  cartPopup.style.display = "flex";
 }
 
 // When the user clicks on the close button, close the cart popup
@@ -57,7 +57,7 @@ var loginCloseButton = document.querySelector("#login-popup .close");
 
 // When the user clicks the login button, open the login popup
 loginButton.onclick = function() {
-  loginPopup.style.display = "block";
+  loginPopup.style.display = "flex";
 }
 
 // When the user clicks on the close button, close the login popup
@@ -82,14 +82,14 @@ var registerForm = document.getElementById("register-form");
 showRegisterLink.addEventListener("click", function(event) {
   event.preventDefault(); // Prevent the default link behavior
   loginForm.style.display = "none";
-  registerForm.style.display = "block";
+  registerForm.style.display = "flex";
 });
 
 // When the user clicks the "Login" link, show the login form and hide the registration form
 showLoginLink.addEventListener("click", function(event) {
   event.preventDefault(); // Prevent the default link behavior
   registerForm.style.display = "none";
-  loginForm.style.display = "block";
+  loginForm.style.display = "flex";
 });
 
 
@@ -99,7 +99,6 @@ function productGotClicked(){
 
 document.getElementsByClassName("product")[0].addEventListener("click", productGotClicked)
 document.getElementsByClassName("product")[1].addEventListener("click", productGotClicked)
-document.getElementsByClassName("product")[2].addEventListener("click", productGotClicked)
 //same thing can be done using a loop
 
 document.getElementById("closePopupbtn").addEventListener("click", function(){
