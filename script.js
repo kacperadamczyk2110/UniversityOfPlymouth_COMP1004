@@ -91,3 +91,17 @@ showLoginLink.addEventListener("click", function(event) {
   registerForm.style.display = "none";
   loginForm.style.display = "block";
 });
+
+
+function productGotClicked(){
+  document.getElementById("productPopup").style.display = "flex";
+}
+
+document.getElementsByClassName("product")[0].addEventListener("click", productGotClicked)
+document.getElementsByClassName("product")[1].addEventListener("click", productGotClicked)
+document.getElementsByClassName("product")[2].addEventListener("click", productGotClicked)
+//same thing can be done using a loop
+
+document.getElementById("closePopupbtn").addEventListener("click", function(){
+  document.getElementById("productPopup").style.display = "none";
+})

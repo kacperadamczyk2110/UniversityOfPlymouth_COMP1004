@@ -28,68 +28,77 @@
 
     <section id="about">
       <h2>About Us</h2>
-      <p>The Meraki Brand embodies the desire to inspire Our slogan ‘By creators for creators’ highlights the importance of constant creativity and fabrication of one’s individual passions.</p>
-      <p>Found by Oscar and Thad, the brand is a symbol of cultural shift and change. Having grown up in and around London, the boys embarked on a new life down south in the ocean city of Plymouth, inspired by the new style of living, the brand was born, producing unique clothing that incorporates London Street and Plymouth seaside culture.
-      </p>
+      <div id="myParaDiv">
+        <div id="aboutImage">
+          <img src="/images/shoes1.webp"/>
+        </div>
+        <div id="aboutPara">
+          <p>The Meraki Brand embodies the desire to inspire Our slogan ‘By creators for creators’ highlights the importance of constant creativity and fabrication of one’s individual passions.</p>
+          <p>Found by Oscar and Thad, the brand is a symbol of cultural shift and change. Having grown up in and around London, the boys embarked on a new life down south in the ocean city of Plymouth, inspired by the new style of living, the brand was born, producing unique clothing that incorporates London Street and Plymouth seaside culture.
+          </p>
+        </div>
+      </div>
     </section>
 
     <section id="products">
       <h2>Our Products</h2>
       
-      <div class="product">
-        <div class="product-info">
-          <img src="product1.jpg" alt="Product 1">
-          <div class="details">
-            <h3>Product 1</h3>
-            <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec felis id purus dignissim tristique.</p>
-            <label for="product1-size">Size:</label>
-            <select id="product1-size">
-              <option value="S">S</option>
-              <option value="M">M</option>
-              <option value="L">L</option>
-            </select>
-            <p class="price">$20</p>
-            <button class="add-to-cart-btn" data-product="Product 1">Add to Cart</button>
+      <div id="productsC">
+        <div class="product" id="theProduct">
+          <div class="product-info">
+            <img src="/images/shoes1.webp" alt="Product 1">
+            <div class="details">
+              <h3>Product 1</h3>
+              <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec felis id purus dignissim tristique.</p>
+              <label for="product1-size">Size:</label>
+              <select id="product1-size">
+                <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+              </select>
+              <p class="price">$20</p>
+              <button class="add-to-cart-btn" data-product="Product 1">Add to Cart</button>
+            </div>
           </div>
         </div>
+        
+        <div class="product" id="theProduct">
+          <div class="product-info">
+            <img src="/images/shoes1.webp" alt="Product 2">
+            <div class="details">
+              <h3>Product 2</h3>
+              <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec felis id purus dignissim tristique.</p>
+              <label for="product2-size">Size:</label>
+              <select id="product2-size">
+                <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+                <option value="XL">XL</option>
+              </select>
+              <p class="price">$25</p>
+              <button class="add-to-cart-btn" data-product="Product 2">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="product" id="theProduct">
+          <div class="product-info">
+            <img src="/images/shoes1.webp" alt="Product 3">
+            <div class="details">
+              <h3>Product 3</h3>
+              <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec felis id purus dignissim tristique.</p>
+              <label for="product3-size">Size:</label>
+              <select id="product3-size">
+                <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+                <option value="XL">XL</option>
+              </select>
+              <p class="price">$30</p>
+              <button class="add-to-cart-btn" data-product="Product 3">Add to Cart</button>
+            </div>
+          </div>
       </div>
-      
-      <div class="product">
-        <div class="product-info">
-          <img src="product2.jpg" alt="Product 2">
-          <div class="details">
-            <h3>Product 2</h3>
-            <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec felis id purus dignissim tristique.</p>
-            <label for="product2-size">Size:</label>
-            <select id="product2-size">
-              <option value="S">S</option>
-              <option value="M">M</option>
-              <option value="L">L</option>
-              <option value="XL">XL</option>
-            </select>
-            <p class="price">$25</p>
-            <button class="add-to-cart-btn" data-product="Product 2">Add to Cart</button>
-          </div>
-        </div>
-      </div>
-      
-      <div class="product">
-        <div class="product-info">
-          <img src="product3.jpg" alt="Product 3">
-          <div class="details">
-            <h3>Product 3</h3>
-            <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec felis id purus dignissim tristique.</p>
-            <label for="product3-size">Size:</label>
-            <select id="product3-size">
-              <option value="S">S</option>
-              <option value="M">M</option>
-              <option value="L">L</option>
-              <option value="XL">XL</option>
-            </select>
-            <p class="price">$30</p>
-            <button class="add-to-cart-btn" data-product="Product 3">Add to Cart</button>
-          </div>
-        </div>
       </div>
     </section>
     
@@ -139,6 +148,22 @@
       <p>Already have an account? <a href="#" id="show-login">Login</a></p>
       <button type="submit">Register</button>
     </form>
+  </div>
+</div>
+
+
+<div id="productPopup">
+  <div id="innerPopupProductDiv">
+    <div id="theProductImage">
+      <img src="/images/shoes1.webp"/>
+    </div>
+    <div id="theInfoABoutTheProduct">
+      <div>
+        <h2>Best Shoes for summer</h2>
+        <p>Most comfortable shoes that money can buy</p>
+      </div>
+    </div>
+    <button id="closePopupbtn">X</button>
   </div>
 </div>
 

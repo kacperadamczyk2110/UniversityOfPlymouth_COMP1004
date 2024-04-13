@@ -48,14 +48,35 @@ body, html {
 }
 
 #products {
-  display: flex;
   flex-wrap: wrap;
   justify-content: space-around; /* Adjust as needed */
 }
-
+#productsC{
+  display: flex;
+}
 .product {
   width: 30%; /* Adjust width to leave some space between boxes */
-  margin-bottom: 20px; /* Add some margin between boxes */
+  margin: auto;
+}
+
+#myParaDiv{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#myParaDiv > div{
+  width: 50%;
+}
+#aboutPara > p{
+  font-size: 1.7rem;
+}
+#about{
+  width: 80%;
+  margin: auto;
+}
+#aboutImage > img{
+  width: 100%;
+  height: auto;
 }
 
 .product-info {
@@ -116,4 +137,34 @@ body, html {
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
+}
+
+
+
+
+
+
+#productPopup{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: none;
+}
+#productPopup > div{
+  width: 80%;
+  height: auto;
+  margin: auto;
+  background-color: white;
+  box-shadow: 2px 2px 17px rgba(0, 0, 0, 0.514);
+  position: relative;
+  display: flex;
+}
+#closePopupbtn{
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 30px;
+  width: 30px;
 }
