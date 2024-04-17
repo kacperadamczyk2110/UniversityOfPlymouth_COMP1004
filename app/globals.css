@@ -49,10 +49,14 @@
 #aboutUsDiv{
   width: 100%;
   min-height: 100vh;
-  max-width: 1600px;
   margin: auto;
   display: flex;
-  background-color: gray;
+  background-color: gray
+}
+#rightAbout{
+  background-color: rgba(255, 255, 255, 0.489);
+  border-radius: 20px;
+  
 }
 #aboutUsDiv > div{
   margin: auto;
@@ -66,9 +70,11 @@
 }
 #aboutUsDiv > div > h2{
   margin: 20px auto;
+  text-align: center;
 }
 #aboutUsDiv > div > p{
   margin: 10px auto;
+  
 }
 #myFormDiv{
   width: 100%;
@@ -123,15 +129,18 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
+  
+  
 }
 #productsTitle{
-  margin-bottom: 20px;
   text-align: center;
 }
 
 #outProductDiv > div{
   margin: auto;
   display: flex;
+  
+  
 }
 #outProductDiv > div > div{
   margin: 10px 20px;
@@ -139,7 +148,6 @@
   box-shadow:2px 0px 7px;
   padding: 30px 10px;
   border-radius: 20px;
-
 }
 #imageHolderforProduct{
   aspect-ratio: 4/3;
@@ -155,6 +163,7 @@
 }
 #product{
   position: relative;
+  background-color: lightgray
 }
 #myRatingHome{
   position: relative;
