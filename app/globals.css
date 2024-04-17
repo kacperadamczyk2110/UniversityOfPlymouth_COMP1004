@@ -23,9 +23,11 @@
   margin: 12px 16px;
   list-style: none;
   font-size: 0.9rem;
+  transition: transform 0.2s ease;
 }
 #myNavData > ul > li:hover{
   cursor: pointer;
+  transform: translateY(3px);
 }
 
 #headerDiv{
@@ -43,8 +45,10 @@
 #headerDiv > div{
   text-align: center;
 }
-#headerDiv > div > h1{
+#headerDiv > div > h1, #headerDiv > div > p{
   margin: 16px auto;
+  text-shadow: 2px 2px 25px;
+  
 }
 #aboutUsDiv{
   width: 100%;
@@ -152,6 +156,7 @@
 }
 #outProductDiv > div > div:hover {
   box-shadow: 2px 2px 7px; 
+  cursor: pointer;
 }
 #imageHolderforProduct{
   aspect-ratio: 4/3;
@@ -182,6 +187,7 @@
 
 
 #productInfoDiv {
+  display: none;
   width: 90%;
   max-width: 800px;
   height: 80%;
@@ -242,7 +248,26 @@
   height: 40px;
   background-color: lightgray;
   box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.6);;
-  
+  cursor: pointer;
+}
+#closeInfoBtn:hover {
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
+  background-color: gray;
+}
+
+#productReviews{
+  padding: 10px 0;
+  margin: 50px auto;
+  border-top: 1px solid rgba(128, 128, 128, 0.2);
+}
+#productReviews > h3{
+  text-align: center;
+  margin: 20px auto;
+}
+#productReviews > div{
+  width: 90%;
+  margin: auto;
+  padding: 25px 0;
 }
 
 

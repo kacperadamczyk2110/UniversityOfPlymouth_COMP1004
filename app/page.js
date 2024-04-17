@@ -12,6 +12,8 @@ export default function Home(){
     const [theRes, setRes] = useState("")
     const [theResSign, setResSign] = useState("")
     const [theProductId, setProductId] = useState("product2")
+    const [theReviews, setTheReviews] = useState({})
+    const [theUserReviewText, setUserReviewText] = useState("")
     
 
     useEffect(()=>{
@@ -20,6 +22,9 @@ export default function Home(){
     useEffect(()=>{
         fetch("http://localhost:3000/api/products/"+theProductId).then(res => res.json()).then(data => setProductInfo(data))
     }, [theProductId])
+    useEffect(()=>{
+        fetch("http://localhost:3000/api/reviews/"+theProductId).then(res => res.json()).then(data => setTheReviews(data))
+    }, [theProductId, myCMR])
     
     
     function handleProductClick(p){
@@ -119,7 +124,7 @@ export default function Home(){
     <div id="headerDiv">
         
             <div id="headerDivData">
-                <h1>MERAKI</h1>
+                <h1>THE MERAKI BRAND</h1>
                 <p>by creators for creators</p>
             </div>
     </div>
@@ -166,7 +171,16 @@ export default function Home(){
                     }}>Add to Cart</button>
                 </div>
             })}
-        
+        <div id="productReviews">
+            <h3>Reviews</h3>
+            {theReviews.theReview && theReviews.theReview.map(res => {
+                return <div id="userReviews">
+                    <h4>{res.username}</h4>
+                    <Rating value={res.ratings} className="disableHover"/>
+                    <p>{res.review}</p>
+                </div>
+            })}
+        </div>
         
         </div>
     </div>
