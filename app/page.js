@@ -15,6 +15,9 @@ export default function Home(){
     const [theReviews, setTheReviews] = useState({})
     const [theUserReviewText, setUserReviewText] = useState("")
     const [theUserRatings, setUserRating] = useState(5)
+    const [theCartRec, setCartRec] = useState({})
+    const [mySubTotal, setSubTotal] = useState(0)
+    const [reloadCart, setReloadCart] = useState(0)
     
     
 
@@ -27,6 +30,18 @@ export default function Home(){
     useEffect(()=>{
         fetch("http://localhost:3000/api/reviews/"+theProductId).then(res => res.json()).then(data => setTheReviews(data))
     }, [theProductId, myCMR])
+    useEffect(()=>{
+        fetch("http://localhost:3000/api/cart").then(res => res.json()).then(data => setCartRec(data))
+    }, [reloadCart])
+    useEffect(()=>{
+        var theTotalAMount = 0;
+        theCartRec.myAllCookies && theCartRec.myAllCookies.map(res => {
+            const myCartDataAsJSON = JSON.parse(res.value)
+            const thePriceIntoUnit = myCartDataAsJSON.price * myCartDataAsJSON.quantity
+            theTotalAMount += thePriceIntoUnit
+        })
+        setSubTotal(theTotalAMount)
+    }, [theCartRec])
     
     
     function handleProductClick(p){
@@ -124,6 +139,78 @@ export default function Home(){
         }
     }
 
+    function showCart(){
+        const theCartDiv = document.getElementById("myCartDiv")
+
+        if(theCartDiv.className == "hidden"){
+            theCartDiv.style.display = "flex";
+            theCartDiv.className = "notHidden"
+        }else{
+            theCartDiv.style.display = "none";
+            theCartDiv.className = "hidden"
+        }
+    }
+
+
+    function handleCartAdd(id,pname,price,image){
+        fetch("http://localhost:3000/api/cart/addCart/", {
+            method: "POST",
+            body: JSON.stringify({
+                "id": id,
+                "pname": pname,
+                "price": price,
+                "image": image
+            })
+        }).then(res => res.json()).then(res => {
+            if(res.res == "Done"){
+                setReloadCart(reloadCart+1)
+            }else{
+                if(res.res != "Limit"){
+                    alert("Something Went Wrong")
+                }else{
+                    alert("You can only Add Upto 5 Units")
+                }
+            }
+        })       
+        
+        document.getElementById("myCartDiv").style.display = "flex";
+        document.getElementById("myCartDiv").className = "notHidden"
+    }
+
+    function deleteThisFromCart(id){
+        fetch("http://localhost:3000/api/cart/deleteCart/", {
+            method: "POST",
+            body: JSON.stringify({
+                "id": id
+            })
+        }).then(res => res.json()).then(res => {
+            if(res.res == "Done"){
+                setReloadCart(reloadCart+1)
+            }else{
+                alert("Something Went Wrong")
+            }
+        })
+    }
+
+    function updateTheUnits(id, newq){
+        console.log(id, newq)
+
+        fetch("http://localhost:3000/api/cart/updateUnits/", {
+            method: "POST",
+            body: JSON.stringify({
+                "id": id,
+                "q": newq
+            })
+        }).then(res => res.json()).then(res => {
+            if(res.res != "Done"){
+                console.log(res.res)
+                alert("SOmething Went Wrong")
+            }else{                
+                setReloadCart(reloadCart+1)
+            }
+        })
+    }
+
 
     
     
@@ -141,7 +228,7 @@ export default function Home(){
                 <li onClick={()=>{
                     window.scrollTo({ top: document.getElementById("outProductDiv").offsetTop, behavior: 'smooth' });
                 }}>Products</li>
-                <li>Cart</li>
+                <li onClick={showCart}>Cart</li>
                 {currentUser && currentUser != "" ? <li>Hi, {currentUser}!</li> : <li onClick={showTheWHoleLoginPage}>Login</li>}
             </ul>
         </div>
@@ -244,6 +331,42 @@ export default function Home(){
             <p>{theResSign}</p>
             <p id="altBtn" onClick={showLogin}>Login</p>
             </form>
+        </div>
+    </div>
+
+    <div id="myCartDiv" className="hidden">
+        <button id="closeCartBtn" onClick={showCart}>X</button>
+        <div id="innerCartDiv">
+
+            {theCartRec.myAllCookies && theCartRec.myAllCookies.map(res => {
+                var mySelectLoop = [1,2,3,4,5,6,7,8,9,10];
+                if(res.name != "_ga"){
+                    const myCartJson = JSON.parse(res.value)
+                    return <div id="cartData">
+                        <button id="removefromCart" onClick={()=>{
+                            deleteThisFromCart(myCartJson.id)
+                        }}>X</button>
+                        <img src={"/images/"+myCartJson.image}/>
+                        <select onChange={(e)=>{
+                            updateTheUnits(myCartJson.id, e.target.value)
+                        }}>
+                            {mySelectLoop.map(res => {
+                                if(res == myCartJson.quantity){
+                                    return <option selected>{res}</option>
+                                }
+                                else{
+                                    return <option>{res}</option>
+                                }
+                            })}
+                        </select>
+                        <h3>£ {myCartJson.price}</h3>
+                        <p>{myCartJson.pname}</p>
+                    </div>
+                }
+            })}
+            <div id="cartSubtotal">
+                {mySubTotal && mySubTotal!=0 ? <button>£{mySubTotal} Buy Now</button> : <button>Cart is Empty</button>}
+            </div>
         </div>
     </div>
 

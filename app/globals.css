@@ -318,6 +318,79 @@
   background-color: black;
 }
 
+#myCartDiv{
+  position: fixed;
+  overflow: auto;
+  right: 0;
+  top: 40px;
+  width: 300px;
+  height: calc(100vh - 40px);
+  background-color: rgba(0, 0, 0, 0.6);
+  display: none;
+}
+#innerCartDiv{
+  width: calc(100% - 14px);
+  margin: auto;
+}
+#cartSubtotal{
+  margin: 14px auto;
+  width: 100%;
+  display: flex;
+}
+#cartSubtotal > button{
+  font-size: large; 
+  height: 35px;
+  padding: 0 14px;
+  border-radius: 30px;
+  margin: auto;
+  border: 0;  
+  background-color: rgb(255, 166, 0);
+}
+#cartSubtotal > button:hover{
+  border: 1px solid black;
+  cursor: pointer;
+}
+#cartData{
+  width: 80%;
+  margin: 14px auto;
+  background-color: white;
+  padding: 7px;
+  border-radius: 3px;
+  position: relative;
+}
+#cartData > img{
+  width: 100%;
+}
+#removefromCart{
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 25px;
+  width: 25px;
+  background-color: black;
+  border: 0;
+  color: white;
+}
+#removefromCart:hover{
+  cursor:pointer;
+}
+#closeCartBtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  background-color: rgb(255, 166, 0);
+  border: 1px solid black;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 20px;
+  cursor: pointer;
+}
+
+#closeCartBtn:hover {
+  background-color: gray;
+}
 
 
 
