@@ -12,6 +12,7 @@ export default function Home(){
     const [theRes, setRes] = useState("")
     const [theResSign, setResSign] = useState("")
     const [theProductId, setProductId] = useState("product2")
+    
 
     useEffect(()=>{
         fetch("http://localhost:3000/api/products").then(res => res.json()).then(data => setProducts(data))
@@ -19,6 +20,7 @@ export default function Home(){
     useEffect(()=>{
         fetch("http://localhost:3000/api/products/"+theProductId).then(res => res.json()).then(data => setProductInfo(data))
     }, [theProductId])
+    
     
     function handleProductClick(p){
         setProductId(p)
@@ -148,8 +150,28 @@ export default function Home(){
             }) }
         </div>
     </div>
+    <div id="productInfoDiv">
+        <div id="innerProductInfo">
+            <button id="closeInfoBtn" onClick={hideTheInfoPopup}>X</button>
+            {theProductInfo.theProducts && theProductInfo.theProducts.map(res => {
+                return <div id="infoDivProduct">
+                    <img src={"/images/"+res.image}/>
+                    <h2>£{res.price}</h2>
+                    <Rating value={res.ratings}  className="disableHover" id="productRevieInfoRating"/>
+                    <h3>{res.name}</h3>
+                    <p>{res.discription}</p>
+                    <button id="addToCartBtn" onClick={()=>{
+                        console.log(res.name)
+                        handleCartAdd(res.uid, res.name, res.price, res.image)
+                    }}>Add to Cart</button>
+                </div>
+            })}
+        
+        
+        </div>
+    </div>
     
-<div id="myLoginPage" onClick={handleOutClick}>
+    <div id="myLoginPage" onClick={handleOutClick}>
         <div id="myFormDiv" className="myLoginForm">
         <form onSubmit={handleLogin}>
             <h2>Login</h2>

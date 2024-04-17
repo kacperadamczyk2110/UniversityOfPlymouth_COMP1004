@@ -145,9 +145,13 @@
 #outProductDiv > div > div{
   margin: 10px 20px;
   max-width: 450px;
-  box-shadow:2px 0px 7px;
+  box-shadow:2px 2px 7px rgba(0, 0, 0, 0.3);
   padding: 30px 10px;
   border-radius: 20px;
+  
+}
+#outProductDiv > div > div:hover {
+  box-shadow: 2px 2px 7px; 
 }
 #imageHolderforProduct{
   aspect-ratio: 4/3;
@@ -172,6 +176,73 @@
 }
 .disableHover{
   pointer-events: none;
+}
+
+
+
+
+#productInfoDiv {
+  width: 90%;
+  max-width: 800px;
+  height: 80%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white; 
+  overflow: auto;
+  padding: 50px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 17px gray;
+  z-index: 999; 
+}
+
+
+#innerProductInfo {
+  margin: auto;
+}
+
+
+#infoDivProduct {
+  display: flex;
+  flex-direction: column;
+}
+
+#addToCartBtn {
+  width: 100px;
+  margin: auto;
+  height: 35px;
+  background-color: rgb(255, 166, 0);
+  border: 0;
+  color: white;
+}
+
+#addToCartBtn:hover {
+  background-color: rgb(191, 135, 30);
+  cursor: pointer;
+}
+
+#innerProductInfo > div > h2 {
+  font-size: 2rem;
+}
+
+#innerProductInfo > div > h2,
+#innerProductInfo > div > h3,
+#innerProductInfo > div > p,
+#productRevieInfoRating {
+  text-align: center;
+  margin: 14px auto;
+}
+
+#closeInfoBtn {
+  position: fixed;
+  right: calc(50% - 420px); 
+  top: 20px;
+  width: 40px;
+  height: 40px;
+  background-color: lightgray;
+  box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.6);;
+  
 }
 
 
