@@ -1,17 +1,36 @@
 "use client"
 import { useState, useEffect } from "react"
-
+import { Rating } from "@mui/material"
 
 export default function Home(){
     
-    
+
+    const [theProducts, setProducts] = useState({})
     const [theProductInfo, setProductInfo] = useState({})
     const [currentUser, setCurrUser] = useState("")
     const [myCMR, setmyCMR] = useState(0)    
     const [theRes, setRes] = useState("")
     const [theResSign, setResSign] = useState("")
-   
- async function handleLogin(e){
+    const [theProductId, setProductId] = useState("product2")
+
+    useEffect(()=>{
+        fetch("http://localhost:3000/api/products").then(res => res.json()).then(data => setProducts(data))
+    }, [])
+    useEffect(()=>{
+        fetch("http://localhost:3000/api/products/"+theProductId).then(res => res.json()).then(data => setProductInfo(data))
+    }, [theProductId])
+    
+    function handleProductClick(p){
+        setProductId(p)
+        document.getElementById("productInfoDiv").style.display = "flex"
+    }
+    
+    function hideTheInfoPopup(){
+        document.getElementById("productInfoDiv").style.display = "none"
+        setUserReviewText("")
+    } 
+
+    async function handleLogin(e){
         e.preventDefault();
         const myUsername = document.getElementById("myUsername").value
         const myPassword = document.getElementById("myPassword").value
@@ -86,7 +105,9 @@ export default function Home(){
                 <li onClick={()=>{
                     window.scrollTo({ top: document.getElementById("aboutUsDiv").offsetTop, behavior: 'smooth' });
                 }}>About</li>
-                <li>Products</li>
+                <li onClick={()=>{
+                    window.scrollTo({ top: document.getElementById("outProductDiv").offsetTop, behavior: 'smooth' });
+                }}>Products</li>
                 <li>Cart</li>
                 {currentUser && currentUser != "" ? <li>Hi, {currentUser}!</li> : <li onClick={showTheWHoleLoginPage}>Login</li>}
             </ul>
@@ -109,6 +130,22 @@ export default function Home(){
             <h2>About Us</h2>
             <p>The Meraki Brand embodies the desire to inspire Our slogan ‘By creators for creators’ highlights the importance of constant creativity and fabrication of one’s individual passions.</p>
             <p>Found by Oscar and Thad, the brand is a symbol of cultural shift and change. Having grown up in and around London, the boys embarked on a new life down south in the ocean city of Plymouth, inspired by the new style of living, the brand was born, producing unique clothing that incorporates London Street and Plymouth seaside culture.</p>
+        </div>
+    </div>
+
+    <div id="outProductDiv">
+        <h1 id="productsTitle">Products</h1>
+        <div id="innerProductDiv">            
+            {theProducts.theProducts && theProducts.theProducts.map(res => {
+                return <div id="product" onClick={()=>{
+                    handleProductClick(res.uid)
+                }}>
+                    <div id="imageHolderforProduct"><img src={"/images/"+res.image}/></div>
+                    <Rating value={res.ratings} id="myRatingHome" className="disableHover"/>
+                    <h2>{res.name}</h2>
+                    <h3>£{res.price}</h3>
+                </div>
+            }) }
         </div>
     </div>
     
