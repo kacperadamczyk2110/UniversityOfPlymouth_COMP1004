@@ -1,0 +1,121 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+#myNavBar{
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: black;
+  display: flex;
+  z-index: 99;
+}
+#myNavData{
+  margin: auto;
+}
+#myNavData > ul{
+  color: white;
+  display: flex;
+}
+
+#myNavData > ul > li{
+  margin: 12px 16px;
+  list-style: none;
+  font-size: 0.9rem;
+}
+#myNavData > ul > li:hover{
+  cursor: pointer;
+}
+
+#headerDiv{
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("/images/backgroundImage.png");
+  background-size: cover;
+  background-position: center;
+  color: white;
+
+}
+#headerDiv > div{
+  text-align: center;
+}
+#headerDiv > div > h1{
+  margin: 16px auto;
+}
+#aboutUsDiv{
+  width: 100%;
+  min-height: 100vh;
+  max-width: 1600px;
+  margin: auto;
+  display: flex;
+  background-color: gray;
+}
+#aboutUsDiv > div{
+  margin: auto;
+  width: 50%;
+  padding: 30px;
+  
+}
+#aboutUsDiv > div > img{
+  width: 100%;
+  transform: scaleX(-1);
+}
+#aboutUsDiv > div > h2{
+  margin: 20px auto;
+}
+#aboutUsDiv > div > p{
+  margin: 10px auto;
+}
+#myFormDiv{
+  width: 100%;
+  height: 100vh;
+}
+.myLoginForm{
+  display: flex;
+}
+#myFormDiv > form{
+  margin: auto;
+  box-shadow: 2px 2px 7px gray;
+  padding: 14px;
+  text-align: center;
+}
+#myFormDiv > form > input{
+  width: 80%;
+  height: 36px;
+  margin: 7px auto;
+  box-sizing: border-box;
+  text-align: center;
+}
+.mySignupForm{
+  display: none;
+}
+#altBtn{
+  text-decoration: underline;
+  color: blue;
+}
+#altBtn:hover{
+  cursor: pointer;
+}
+#myLoginPage{
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(255,255,255,0.7);
+  border-radius: 20px;
+}
+#myLoginPage > div{
+  margin: auto;
+}
+#myLoginPage > div > form{
+  background-color: white;
+}
+
+
+
