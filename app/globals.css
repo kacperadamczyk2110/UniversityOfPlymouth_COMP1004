@@ -117,5 +117,53 @@
   background-color: white;
 }
 
+#outProductDiv{
+  padding-top: 41px;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+#productsTitle{
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+#outProductDiv > div{
+  margin: auto;
+  display: flex;
+}
+#outProductDiv > div > div{
+  margin: 10px 20px;
+  max-width: 450px;
+  box-shadow:2px 0px 7px;
+  padding: 30px 10px;
+  border-radius: 20px;
+
+}
+#imageHolderforProduct{
+  aspect-ratio: 4/3;
+  background-color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+#outProductDiv > div > div > div > img{
+  width: 100%;
+  height: auto;
+}
+#product{
+  position: relative;
+}
+#myRatingHome{
+  position: relative;
+  right: 0;
+  top: 0;
+}
+.disableHover{
+  pointer-events: none;
+}
+
 
 
