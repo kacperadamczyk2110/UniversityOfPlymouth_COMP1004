@@ -14,6 +14,8 @@ export default function Home(){
     const [theProductId, setProductId] = useState("product2")
     const [theReviews, setTheReviews] = useState({})
     const [theUserReviewText, setUserReviewText] = useState("")
+    const [theUserRatings, setUserRating] = useState(5)
+    
     
 
     useEffect(()=>{
@@ -55,6 +57,30 @@ export default function Home(){
         if(fetchRes.res == "Done"){
             hideTheWHoleLoginPage()
             setCurrUser(fetchRes.username)
+        }
+    }
+
+    function handleTheUserReviewText(e){
+        e.preventDefault()
+        if(currentUser != ""){
+            fetch("http://localhost:3000/api/addReviews", {
+                method: "POST",
+                body: JSON.stringify({
+                    "theuid":theProductId,
+                    "theusername":currentUser,
+                    "thereview":theUserReviewText,
+                    "theratings":theUserRatings
+                })
+            }).then(res => res.json()).then(data => {
+                if(data.theAddRewRes.acknowledged == true){
+                    setmyCMR(myCMR+1)
+                    setUserReviewText("")
+                }else{
+                    alert("Something went wrong")
+                }
+            })
+        }else{
+            showTheWHoleLoginPage()
         }
     }
 
@@ -180,6 +206,17 @@ export default function Home(){
                     <p>{res.review}</p>
                 </div>
             })}
+        </div>
+        <div id="addReviews">
+            <form onSubmit={handleTheUserReviewText}>
+                <Rating id="reviewRatings" value={theUserRatings} onChange={(e)=>{
+                    setUserRating(e.target.value)
+                }}/>
+                <textarea placeholder="Write your Review here" value={theUserReviewText} onChange={(e)=>{
+                    setUserReviewText(e.target.value)
+                }}></textarea>
+                <input type="submit" value="Add Review"/>
+            </form> 
         </div>
         
         </div>
