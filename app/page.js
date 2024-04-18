@@ -284,6 +284,7 @@ export default function Home(){
                     }}>Add to Cart</button>
                 </div>
             })}
+            
         <div id="productReviews">
             <h3>Reviews</h3>
             {theReviews.theReview && theReviews.theReview.map(res => {
